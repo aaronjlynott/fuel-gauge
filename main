@@ -1,0 +1,27 @@
+#convert fraction as inputed by user to % (x/y)
+#if <=1% return E, if >=99% return F
+#If x or y not integer, or y>x or y = o, prompt user again
+while True:
+    try:
+#prompt user for input
+        gas = input('What fraction of gas remains in your gauge? ')
+        intx,inty = gas.split('/')
+#print(intx)
+        x = int(intx)
+        y = int(inty)
+
+        gauge_percent = (x / y)
+
+        if gauge_percent <=1:
+            break
+
+    except (ValueError, ZeroDivisionError):
+        pass
+
+gp = gauge_percent * 100
+if gp <= 1:
+    print('E')
+elif gp >= 99:
+    print('F')
+else:
+    print(f'{gp:.0f}%')
